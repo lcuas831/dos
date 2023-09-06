@@ -92,8 +92,6 @@ def update(frame_number : int = 0) -> Tuple[Update, Update]:
 
 
 def extract_preview_frame(temp_frame : Frame) -> Frame:
-	if predict_frame(temp_frame):
-		return cv2.GaussianBlur(temp_frame, (99, 99), 0)
 	source_face = get_one_face(cv2.imread(facefusion.globals.source_path)) if facefusion.globals.source_path else None
 	temp_frame = reduce_preview_frame(temp_frame)
 	if 'reference' in facefusion.globals.face_recognition and not get_face_reference():
